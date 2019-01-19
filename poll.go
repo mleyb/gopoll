@@ -2,12 +2,10 @@ package main
 
 import (
 	"database/sql"
-	"gopoll/handlers"
-	"gopoll/models"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/mattn/go-sqlite3"	
 )
 
 func main() {
@@ -23,8 +21,8 @@ func main() {
 
     // Define the HTTP routes
     e.File("/", "public/index.html")
-    e.GET("/polls", handlers.GetPolls(db))
-    e.PUT("/poll/:index", handlers.UpdatePoll(db))
+    e.GET("/polls", GetPolls(db))
+    e.PUT("/poll/:index", UpdatePoll(db))
 
 	// Start server
 	e.Logger.Fatal(e.Start(":9000"))
