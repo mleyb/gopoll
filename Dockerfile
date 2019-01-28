@@ -1,5 +1,5 @@
 # build stage
-FROM golang:1.11.4 AS build-env
+FROM golang:1.11.5 AS build-env
 RUN go get -d -v github.com/labstack/echo && \
     go get -d -v github.com/labstack/echo/middleware && \
     go get -d -v github.com/mattn/go-sqlite3
